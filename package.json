@@ -2,17 +2,8 @@
   "name": "bd-sigorta-web",
   "version": "1.0.0",
   "description": "BD Sigorta Premium Landing Page",
-  "main": "index.html",
+  "private": true,
   "scripts": {
-    "start": "serve .",
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
-  "devDependencies": {
-    "vite": "^5.0.0"
-  },
-  "dependencies": {
-    "@vercel/analytics": "^2.0.1"
+    "start": "serve ."
   }
 }
