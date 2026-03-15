@@ -34,12 +34,46 @@ document.querySelectorAll('.service-card, .feature-card').forEach(el => {
     observer.observe(el);
 });
 
-// Form submission handling
-const form = document.querySelector('form');
+// Form submission handling (WhatsApp Integration)
+const form = document.getElementById('insurance-form');
 if (form) {
     form.addEventListener('submit', (e) => {
         e.preventDefault();
-        alert('Talebiniz başarıyla alındı. En kısa sürede size dönüş yapacağız!');
-        form.reset();
+
+        // Verileri al
+        const name = document.getElementById('name').value;
+        const phone = document.getElementById('phone').value;
+        const type = document.getElementById('insurance-type').value;
+        const msg = document.getElementById('message').value;
+
+        // Mesajı oluştur
+        const whatsappMsg = `Merhaba BD Sigorta, teklif almak istiyorum.%0A%0A*İsim:* ${name}%0A*Telefon:* ${phone}%0A*Sigorta Türü:* ${type}${msg ? `%0A*Not:* ${msg}` : ''}`;
+
+        // WhatsApp Numaranız (Buraya kendi numaranızı yazın, örn: 905321234567)
+        const myPhoneNumber = "905322823399"; 
+
+        // Gönder düğmesini geçici olarak değiştir
+        const btn = form.querySelector('button');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Gönderiliyor...';
+        btn.disabled = true;
+
+        setTimeout(() => {
+            // WhatsApp'ı aç
+            window.open(`https://wa.me/${myPhoneNumber}?text=${whatsappMsg}`, '_blank');
+            
+            // Başarı geri bildirimi
+            btn.innerHTML = '<i class="fa-solid fa-check"></i> Başarıyla Gönderildi!';
+            btn.style.background = '#27ae60';
+            
+            form.reset();
+
+            // 3 saniye sonra eski haline dön
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.style.background = '';
+                btn.disabled = false;
+            }, 3000);
+        }, 1000);
     });
 }
