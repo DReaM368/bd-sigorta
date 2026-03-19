@@ -1,4 +1,8 @@
 // Sticky Header Effect
+import { inject } from '@vercel/analytics';
+ 
+inject();
+
 window.addEventListener('scroll', () => {
     const header = document.querySelector('header');
     if (window.scrollY > 50) {
