@@ -157,19 +157,6 @@ nav {
     box-shadow: 0 6px 12px rgba(37, 211, 102, 0.4);
 }
 
-.cta-button {
-    background: var(--secondary-color);
-    color: var(--primary-color) !important;
-    padding: 0.6rem 1.2rem;
-    border-radius: 8px; /* matching kart görünümü with the whatsapp button */
-    font-weight: 600 !important;
-}
-
-.cta-button:hover {
-    background: var(--white);
-    transform: translateY(-2px);
-}
-
 /* Hero Section */
 .hero {
     height: 100vh;
@@ -659,21 +646,7 @@ footer {
         display: none;
     }
 
-    .wa-text {
-        display: none;
-    }
-
     .whatsapp-card {
-        padding: 0.6rem;
-        border-radius: 50%; /* Make it round icon wrapper */
-    }
-
-    .whatsapp-card i {
-        font-size: 1.5rem;
-        margin: 0;
-    }
-
-    .cta-button {
         padding: 0.5rem 0.8rem;
         font-size: 0.9rem;
     }
